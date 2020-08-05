@@ -3,24 +3,19 @@
     <div class="logo">
       <img width="24px" height="24px" src="@/assets/logo.png" alt="" />
     </div>
-    <router-link v-slot="{ href, route, navigate, isExactActive }" to="/"
+    <router-link v-slot="{ href, navigate, isExactActive }" to="/"
       ><Button
         :active="isExactActive"
         text="Home"
         :href="href"
         @click="navigate"
-      ></Button
-    ></router-link>
-    <router-link
-      v-slot="{ href, route, navigate, isExactActive }"
-      to="/following"
+        >Home</Button
+      ></router-link
     >
-      <Button
-        :active="isExactActive"
-        text="Following"
-        :href="href"
-        @click="navigate"
-      ></Button>
+    <router-link v-slot="{ href, navigate, isExactActive }" to="/following">
+      <Button :active="isExactActive" :href="href" @click="navigate"
+        >Following</Button
+      >
     </router-link>
   </div>
 </template>

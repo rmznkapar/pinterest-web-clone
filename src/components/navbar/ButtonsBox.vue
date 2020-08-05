@@ -30,11 +30,21 @@
         ></path>
       </svg>
     </SvgIcon>
-    <div class="button">
-      <div class="logo">
+    <router-link
+      class="button"
+      v-slot="{ href, navigate, isExactActive }"
+      to="/profile"
+    >
+      <div
+        :active="isExactActive"
+        text="Following"
+        :href="href"
+        @click="navigate"
+        class="logo"
+      >
         <span>R</span>
       </div>
-    </div>
+    </router-link>
     <SvgIcon>
       <svg
         class="gUZ B9u U9O kVc"

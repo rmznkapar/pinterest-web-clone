@@ -52,8 +52,8 @@ export default {
     }
   },
   created() {
-    // this.getImages(this.page);
-    this.getImages("Aesthetic");
+    this.getImages(this.page);
+    // this.getImages("Aesthetic");
   }
 };
 </script>

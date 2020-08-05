@@ -22,6 +22,9 @@
       <div class="save-button"><span>Save</span></div>
     </div>
     <img class="img" :src="image.urls.small" :alt="image.alt_description" />
+    <div class="util-box">
+      <div class="option-button"><span></span></div>
+    </div>
     <div v-show="hover" class="opacity-background"></div>
   </div>
 </template>

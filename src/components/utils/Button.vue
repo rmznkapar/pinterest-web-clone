@@ -3,7 +3,7 @@
     <div class="button-link" :class="{ active: active }">
       <div>
         <span>
-          {{ text }}
+          <slot></slot>
         </span>
       </div>
     </div>
@@ -14,7 +14,6 @@
 export default {
   name: "Button",
   props: {
-    text: String,
     active: Boolean
   }
 };

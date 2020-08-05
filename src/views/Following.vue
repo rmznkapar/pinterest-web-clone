@@ -1,7 +1,7 @@
 <template>
   <div class="following">
     <h1>Following</h1>
-    <Feed page="home" />
+    <Feed page="japan" />
   </div>
 </template>
 
