@@ -46,6 +46,10 @@ export default {
   justify-content: center;
   flex: 1 1 auto;
 }
+
+.search-box:hover {
+  background-color: rgba(225, 225, 225);
+}
 .search-logo {
   display: flex;
   justify-content: center;

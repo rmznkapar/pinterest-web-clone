@@ -1,12 +1,18 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <Feed page="home" />
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
-
+import Feed from "@/components/feed/Feed.vue";
 export default {
   name: "Home",
-  components: {}
+  components: { Feed }
 };
 </script>
+<style scoped>
+.home {
+  padding-top: 90px;
+}
+</style>

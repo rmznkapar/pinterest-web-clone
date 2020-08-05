@@ -6,7 +6,7 @@
     <router-link v-slot="{ href, route, navigate, isExactActive }" to="/"
       ><Button
         :active="isExactActive"
-        text="Home Page"
+        text="Home"
         :href="href"
         @click="navigate"
       ></Button
