@@ -21,7 +21,7 @@ const routes = [
     component: () => import("../views/Profile.vue")
   },
   {
-    path: "/pin/{id}",
+    path: "/pin/:id",
     name: "Pin",
     component: () => import("../views/Pin.vue")
   }

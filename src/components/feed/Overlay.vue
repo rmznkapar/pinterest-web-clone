@@ -1,5 +1,10 @@
 <template>
-  <div class="overlay" @mouseover="hover = true" @mouseleave="hover = false">
+  <div
+    class="overlay"
+    @mouseover="hover = true"
+    @mouseleave="hover = false"
+    v-on:click="goPin(image.id)"
+  >
     <div v-show="hover" class="save-box">
       <div class="select-button">
         <span>Wallpapers</span>
@@ -39,6 +44,16 @@ export default {
     return {
       hover: false
     };
+  },
+  methods: {
+    goPin(imageId) {
+      console.log(imageId);
+      if (this.$route.name === "Pin") {
+        this.$router.replace({ name: "Pin", params: { id: imageId } });
+      } else {
+        this.$router.push({ name: "Pin", params: { id: imageId } });
+      }
+    }
   }
 };
 </script>

@@ -12,6 +12,7 @@
 import Header from "@/components/profile/Header.vue";
 import ActionBar from "@/components/profile/ActionBar.vue";
 import Feed from "@/components/feed/Feed.vue";
+
 export default {
   name: "Profile",
   components: {

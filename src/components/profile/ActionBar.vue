@@ -64,6 +64,10 @@ export default {
 .action-bar {
   padding: 16px;
   padding-top: 0px;
+  position: sticky;
+  top: 80px;
+  z-index: 3;
+  background: white;
 }
 .flexing {
   display: flex;
