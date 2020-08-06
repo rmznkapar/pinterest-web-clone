@@ -1,8 +1,8 @@
 <template>
   <div class="pin">
-    <PinBox :pinId="$route.params.id" />
+    <PinBox @getByTag="getByTag" :pinId="$route.params.id" />
     <h2>More Like This</h2>
-    <Feed page="people" />
+    <Feed :key="visitCount" :page="tag" />
   </div>
 </template>
 
@@ -15,6 +15,18 @@ export default {
   components: {
     PinBox,
     Feed
+  },
+  data() {
+    return {
+      tag: "",
+      visitCount: 0
+    };
+  },
+  methods: {
+    getByTag(val) {
+      this.tag = val;
+      this.visitCount++;
+    }
   }
 };
 </script>

@@ -3,9 +3,7 @@
     <div class="img-holder">
       <img :src="content.urls.small" :alt="content.alt_description" />
     </div>
-    <div class="panel-holder">
-      <h1>{{ content.alt_description }}</h1>
-    </div>
+    <PinContent :content="content" />
   </div>
 </template>
 
@@ -25,21 +23,22 @@
   display: flex;
   flex: 1;
   flex-grow: 1;
-}
-.panel-holder {
-  display: flex;
-  flex: 1;
-  flex-grow: 1;
+  height: fit-content;
 }
 .img-holder img {
   width: 100%;
+  border-top-left-radius: 32px;
+  border-bottom-left-radius: 32px;
 }
 </style>
 
 <script>
 import axios from "axios";
+import PinContent from "@/components/feed/PinContent.vue";
+
 export default {
   name: "PinBox",
+  components: { PinContent },
   props: {
     pinId: String
   },
@@ -60,6 +59,7 @@ export default {
         })
         .then(response => {
           this.content = response.data;
+          this.$emit("getByTag", this.content.tags[2].title);
           console.log(this.content);
         })
         .catch(() => {

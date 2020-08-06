@@ -44,7 +44,6 @@ export default {
         )
         .then(response => {
           this.images = response.data.results;
-          console.log(this.images);
         })
         .catch(() => {
           this.images = [];

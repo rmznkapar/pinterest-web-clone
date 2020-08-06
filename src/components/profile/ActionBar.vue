@@ -11,10 +11,10 @@
       </div>
       <div class=" section tabs">
         <div v-on:click="switchTabs('boards')">
-          <Button :active="switchButton">Boards</Button>
+          <Button bgColor="white" :active="switchButton">Boards</Button>
         </div>
         <div v-on:click="switchTabs('pins')">
-          <Button :active="!switchButton">Pins</Button>
+          <Button bgColor="white" :active="!switchButton">Pins</Button>
         </div>
       </div>
       <div class=" section filters">

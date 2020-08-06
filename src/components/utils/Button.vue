@@ -1,6 +1,10 @@
 <template>
   <a class="button">
-    <div class="button-link" :class="{ active: active }">
+    <div
+      class="button-link"
+      :style="{ backgroundColor: bgColor }"
+      :class="{ active: active }"
+    >
       <div>
         <span>
           <slot></slot>
@@ -14,7 +18,8 @@
 export default {
   name: "Button",
   props: {
-    active: Boolean
+    active: Boolean,
+    bgColor: String
   }
 };
 </script>
@@ -24,7 +29,7 @@ a {
   text-decoration: none;
 }
 .button-link {
-  color: #333;
+  color: black;
   text-decoration: none;
   font-size: 16px;
   font-weight: 700;
@@ -38,10 +43,10 @@ a {
 }
 .active {
   color: white;
-  background: black;
+  background: black !important;
 }
 .active:hover {
-  background: black;
+  background: black !important;
 }
 
 .button-link div {

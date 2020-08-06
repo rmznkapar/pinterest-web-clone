@@ -5,6 +5,7 @@
     </div>
     <router-link v-slot="{ href, navigate, isExactActive }" to="/"
       ><Button
+        bgColor="white"
         :active="isExactActive"
         text="Home"
         :href="href"
@@ -13,7 +14,11 @@
       ></router-link
     >
     <router-link v-slot="{ href, navigate, isExactActive }" to="/following">
-      <Button :active="isExactActive" :href="href" @click="navigate"
+      <Button
+        bgColor="white"
+        :active="isExactActive"
+        :href="href"
+        @click="navigate"
         >Following</Button
       >
     </router-link>
