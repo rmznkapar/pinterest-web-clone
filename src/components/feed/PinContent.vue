@@ -3,14 +3,14 @@
     <div class="flex-section">
       <div class="icons-box">
         <div class="icon">
-          <Threedot />
+          <Threedot size="20" />
         </div>
         <div class="icon">
-          <Share />
+          <Share size="20" />
         </div>
       </div>
       <div class="util-box">
-        <SaveBox />
+        <SaveBox size="20" />
       </div>
     </div>
     <div class="section">

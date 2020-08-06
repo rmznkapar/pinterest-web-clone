@@ -1,8 +1,8 @@
 <template>
   <svg
     class="gUZ pBj U9O kVc"
-    height="20"
-    width="20"
+    :height="size"
+    :width="size"
     viewBox="0 0 24 24"
     aria-hidden="true"
     aria-label=""
@@ -16,6 +16,9 @@
 
 <script>
 export default {
-  name: "Settings"
+  name: "Settings",
+  props: {
+    size: Number
+  }
 };
 </script>

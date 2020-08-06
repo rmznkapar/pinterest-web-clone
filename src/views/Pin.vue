@@ -6,10 +6,10 @@
       </div>
       <div class="corner-buttons">
         <div class="icon">
-          <Add />
+          <Add size="16" />
         </div>
         <div class="icon">
-          <Question />
+          <Question size="16" />
         </div>
       </div>
     </div>
@@ -73,9 +73,10 @@ export default {
     rgba(0, 0, 0, 0.04) 0px 0px 0px 0.5px;
 }
 .icon {
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   align-items: center;
+  padding: 4px;
   justify-content: center;
   display: flex;
   border-radius: 100%;

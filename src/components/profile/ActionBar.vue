@@ -3,10 +3,10 @@
     <div class="flexing">
       <div class=" section settings">
         <div class="icon">
-          <Pen />
+          <Pen size="20" />
         </div>
         <div class="icon">
-          <Share />
+          <Share size="20" />
         </div>
       </div>
       <div class=" section tabs">
@@ -19,10 +19,10 @@
       </div>
       <div class=" section filters">
         <div class="icon">
-          <Settings />
+          <Settings size="20" />
         </div>
         <div class="icon">
-          <Add />
+          <Add size="20" />
         </div>
       </div>
     </div>

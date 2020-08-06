@@ -1,8 +1,8 @@
 <template>
   <svg
     class="Hn_ gUZ pBj"
-    height="20"
-    width="20"
+    :height="size"
+    :width="size"
     viewBox="0 0 24 24"
     aria-label="Back button"
     role="img"
@@ -15,6 +15,9 @@
 
 <script>
 export default {
-  name: "Back"
+  name: "Back",
+  props: {
+    size: Number
+  }
 };
 </script>
