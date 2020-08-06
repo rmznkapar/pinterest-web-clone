@@ -39,7 +39,7 @@ a {
   cursor: pointer;
 }
 .button-link:hover {
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.06) !important;
 }
 .active {
   color: white;

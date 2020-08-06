@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Feed page="Aesthetic" />
+    <Feed page="people" />
   </div>
 </template>
 

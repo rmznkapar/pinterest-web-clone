@@ -48,6 +48,6 @@ export default {
   justify-content: center;
 }
 .logo:hover {
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0, 0, 0, 0.06) !important;
 }
 </style>

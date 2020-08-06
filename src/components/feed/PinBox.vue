@@ -12,12 +12,14 @@
   display: flex;
   max-width: 1016px;
   margin: auto;
+  z-index: 5;
   box-sizing: border-box;
   background: white;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 20px 0px;
   border-radius: 32px;
   margin-top: 25px;
   margin-bottom: 50px;
+  position: relative;
 }
 .img-holder {
   display: flex;

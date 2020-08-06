@@ -26,14 +26,16 @@ export default {
   },
   data() {
     return {
-      images: []
+      images: [],
+      pageCount: 1,
+      isLoaded: false
     };
   },
   methods: {
     getImages(topic) {
       axios
         .get(
-          `https://api.unsplash.com/search/photos?query=${topic}&per_page=50`,
+          `https://api.unsplash.com/search/photos?query=${topic}&per_page=30&page=${this.pageCount}`,
           {
             headers: {
               Authorization:
@@ -43,9 +45,12 @@ export default {
           }
         )
         .then(response => {
-          this.images = response.data.results;
+          // this.images = response.data.results;
+          this.isLoaded = true;
+          this.images = this.images.concat(response.data.results);
         })
         .catch(() => {
+          this.isLoaded = false;
           this.images = [];
         });
     }
@@ -53,6 +58,18 @@ export default {
   created() {
     this.getImages(this.page);
     // this.getImages("Aesthetic");
+  },
+  mounted() {
+    window.onscroll = () => {
+      let bottomOfWindow =
+        window.pageYOffset + window.innerHeight - document.body.offsetHeight;
+
+      if (bottomOfWindow > -30 && this.isLoaded) {
+        this.pageCount++;
+        this.isLoaded = false;
+        this.getImages(this.page);
+      }
+    };
   }
 };
 </script>

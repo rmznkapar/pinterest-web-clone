@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 #navbar {
-  z-index: 2;
+  z-index: 6;
   display: flex;
   box-sizing: border-box;
   width: 100%;
