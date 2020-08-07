@@ -2,7 +2,7 @@
   <div class="pin">
     <div class="floting-buttons">
       <div class="icon" @click="$router.go(-1)">
-        <Back />
+        <Back size="24" />
       </div>
       <div class="corner-buttons">
         <div class="icon">
@@ -62,19 +62,9 @@ export default {
   height: 80%;
   margin: 20px 24px;
 }
-.corner-buttons {
-  position: absolute;
-  right: 0px;
-  bottom: 0px;
-}
-.corner-buttons .icon {
-  margin-top: 10px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 0px 0px,
-    rgba(0, 0, 0, 0.04) 0px 0px 0px 0.5px;
-}
 .icon {
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   align-items: center;
   padding: 4px;
   justify-content: center;
@@ -82,6 +72,18 @@ export default {
   border-radius: 100%;
   cursor: pointer;
   background-color: white;
+}
+.corner-buttons {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+.corner-buttons .icon {
+  width: 32px;
+  height: 32px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 0px 0px,
+    rgba(0, 0, 0, 0.04) 0px 0px 0px 0.5px;
 }
 .icon:hover {
   background: rgba(0, 0, 0, 0.06);

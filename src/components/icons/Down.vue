@@ -1,6 +1,6 @@
 <template>
   <svg
-    class="gUZ pBj U9O kVc"
+    class="gUZ B9u U9O kVc"
     :height="size"
     :width="size"
     viewBox="0 0 24 24"
@@ -9,14 +9,14 @@
     role="img"
   >
     <path
-      d="M22 10h-8V2a2 2 0 0 0-4 0v8H2a2 2 0 0 0 0 4h8v8a2 2 0 0 0 4 0v-8h8a2 2 0 0 0 0-4"
+      d="M12 19.5L.66 8.29c-.88-.86-.88-2.27 0-3.14.88-.87 2.3-.87 3.18 0L12 13.21l8.16-8.06c.88-.87 2.3-.87 3.18 0 .88.87.88 2.28 0 3.14L12 19.5z"
     ></path>
   </svg>
 </template>
 
 <script>
 export default {
-  name: "Add",
+  name: "Down",
   props: {
     size: String
   }

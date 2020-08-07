@@ -18,7 +18,7 @@
 export default {
   name: "Question",
   props: {
-    size: Number
+    size: String
   }
 };
 </script>

@@ -18,7 +18,7 @@
 export default {
   name: "Share",
   props: {
-    size: Number
+    size: String
   }
 };
 </script>

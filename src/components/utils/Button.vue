@@ -38,6 +38,7 @@ a {
   height: 48px;
   cursor: pointer;
 }
+
 .button-link:hover {
   background: rgba(0, 0, 0, 0.06) !important;
 }

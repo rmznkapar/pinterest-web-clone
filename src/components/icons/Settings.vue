@@ -18,7 +18,7 @@
 export default {
   name: "Settings",
   props: {
-    size: Number
+    size: String
   }
 };
 </script>

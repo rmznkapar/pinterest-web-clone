@@ -17,7 +17,7 @@
 export default {
   name: "Threedot",
   props: {
-    size: Number
+    size: String
   }
 };
 </script>

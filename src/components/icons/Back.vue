@@ -17,7 +17,7 @@
 export default {
   name: "Back",
   props: {
-    size: Number
+    size: String
   }
 };
 </script>
