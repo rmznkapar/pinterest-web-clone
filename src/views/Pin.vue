@@ -15,7 +15,7 @@
     </div>
     <PinBox @getByTag="getByTag" :pinId="$route.params.id" />
     <h2>More Like This</h2>
-    <!-- <Feed :key="visitCount" :page="tag" /> -->
+    <Feed :key="visitCount" :page="tag" />
   </div>
 </template>
 
@@ -24,7 +24,7 @@ import PinBox from "@/components/feed/PinBox.vue";
 import Back from "@/components/icons/Back.vue";
 import Question from "@/components/icons/Question.vue";
 import Add from "@/components/icons/Add.vue";
-// import Feed from "@/components/feed/Feed.vue";
+import Feed from "@/components/feed/Feed.vue";
 
 export default {
   name: "Pin",
@@ -32,8 +32,8 @@ export default {
     PinBox,
     Back,
     Question,
-    Add
-    // Feed
+    Add,
+    Feed
   },
   data() {
     return {

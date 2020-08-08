@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-fade">
-    <div class="modal" v-if="show">
+    <div class="modal" :class="[type]" v-if="show">
       <div class="title-box">
         <div class="title">Send this profile</div>
       </div>
@@ -37,7 +37,11 @@ import Button from "@/components/utils/Button.vue";
 export default {
   name: "ShareBox",
   props: {
-    show: Boolean
+    show: Boolean,
+    type: {
+      type: String,
+      default: "right"
+    }
   },
   components: {
     SearchBox,
@@ -67,7 +71,7 @@ export default {
   flex-direction: column;
   position: absolute;
   background: white;
-  z-index: 7;
+  z-index: 9;
   width: 325px;
   height: 350px;
   text-align: left;
@@ -77,6 +81,9 @@ export default {
   -ms-scroll-chaining: none;
   overscroll-behavior: none;
   border-radius: 16px;
+}
+.left {
+  left: -340px;
 }
 .button-box {
   margin-right: 8px;

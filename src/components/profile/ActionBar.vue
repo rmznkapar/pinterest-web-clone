@@ -17,10 +17,10 @@
       </div>
       <div class=" section tabs">
         <div v-on:click="switchTabs('boards')">
-          <Button bgColor="white" :active="switchButton">Boards</Button>
+          <Button bgColor="white" :active="!switchButton">Boards</Button>
         </div>
         <div v-on:click="switchTabs('pins')">
-          <Button bgColor="white" :active="!switchButton">Pins</Button>
+          <Button bgColor="white" :active="switchButton">Pins</Button>
         </div>
       </div>
       <div class=" section filters">
@@ -98,7 +98,7 @@ export default {
   },
   data() {
     return {
-      switchButton: true,
+      switchButton: false,
       shareboxModal: false,
       settingsModal: false,
       addModal: false
@@ -110,6 +110,9 @@ export default {
 
       this.$emit("switchTab", val);
     }
+  },
+  created() {
+    this.switchTabs("pins");
   }
 };
 </script>

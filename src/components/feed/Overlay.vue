@@ -7,19 +7,19 @@
   >
     <SaveBox v-show="hover" />
     <img class="img" :src="image.urls.small" :alt="image.alt_description" />
-    <div v-show="hover" class="util-box">
+    <div v-show="hover" class="util-box" :class="{ indexBot: shareboxModal }">
       <div
-        @focus="shareboxModal = true"
-        @focusout="shareboxModal = false"
+        @focus="modalSwitch('share')"
+        @focusout="modalSwitch('share')"
         tabindex="0"
         class="icon"
       >
         <Share size="16" />
-        <ShareBox :show="shareboxModal" />
+        <ShareBox :type="angle" :show="shareboxModal" />
       </div>
       <div
-        @focus="modalSwitch()"
-        @focusout="modalSwitch()"
+        @focus="modalSwitch('option')"
+        @focusout="modalSwitch('option')"
         tabindex="0"
         class="icon"
         ref="optionButton"
@@ -71,9 +71,13 @@ export default {
     };
   },
   methods: {
-    modalSwitch() {
-      this.optionsModal = !this.optionsModal;
-      if (this.optionsModal) {
+    modalSwitch(type) {
+      if (type === "option") {
+        this.optionsModal = !this.optionsModal;
+      } else {
+        this.shareboxModal = !this.shareboxModal;
+      }
+      if (this.optionsModal || this.shareboxModal) {
         if (
           this.$refs.optionButton.getBoundingClientRect().x >
           window.innerWidth / 2
@@ -116,6 +120,9 @@ export default {
   right: 15px;
   gap: 10px;
   z-index: 1;
+}
+.indexBot {
+  z-index: 4 !important;
 }
 .icon {
   width: 32px;
