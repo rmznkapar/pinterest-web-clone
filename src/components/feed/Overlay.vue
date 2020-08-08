@@ -1,26 +1,48 @@
 <template>
   <div
+    :style="{ height: image.height / (image.width / 230) + 'px' }"
     class="overlay"
     @mouseover="hover = true"
     @mouseleave="hover = false"
-    v-on:click="goPin(image.id)"
   >
     <SaveBox v-show="hover" />
     <img class="img" :src="image.urls.small" :alt="image.alt_description" />
     <div v-show="hover" class="util-box">
       <div class="icon">
-        <Threedot size="16" />
-      </div>
-      <div class="icon">
         <Share size="16" />
       </div>
+      <div
+        @focus="optionsModal = true"
+        @focusout="optionsModal = false"
+        tabindex="0"
+        class="icon"
+      >
+        <Threedot size="16" />
+        <Options :type="angle" :show="optionsModal">
+          <div class="sub-title option-sec">Accounts</div>
+          <div class="normal-title option-sec gray-hover">
+            Add another account
+          </div>
+          <div class="normal-title option-sec gray-hover">
+            Add a free business account
+          </div>
+          <div class="sub-title option-sec">More Settings</div>
+          <div class="normal-title option-sec gray-hover">Settings</div>
+          <div class="normal-title option-sec gray-hover">
+            Tune your home feed
+          </div>
+          <div class="normal-title option-sec gray-hover">Log out</div>
+        </Options>
+      </div>
     </div>
-    <div class="opacity-background"></div>
+    <div class="opacity-background" v-on:click="goPin(image.id)"></div>
   </div>
 </template>
 
 <script>
+import Options from "@/components/modals/Options.vue";
 import SaveBox from "@/components/utils/SaveBox.vue";
+
 import Share from "@/components/icons/Share.vue";
 import Threedot from "@/components/icons/Threedot.vue";
 export default {
@@ -28,14 +50,17 @@ export default {
   components: {
     Share,
     Threedot,
-    SaveBox
+    SaveBox,
+    Options
   },
   props: {
-    image: Object
+    image: Object,
+    angle: String
   },
   data() {
     return {
-      hover: false
+      hover: false,
+      optionsModal: false
     };
   },
   methods: {
@@ -46,6 +71,12 @@ export default {
       } else {
         this.$router.push({ name: "Pin", params: { id: imageId } });
       }
+    },
+    getSize(url) {
+      const place = url.search("w=");
+      const width = url.substring(place + 2, place + 5) + "px";
+      console.log(width);
+      return [width];
     }
   }
 };
@@ -53,6 +84,8 @@ export default {
 
 <style scoped>
 .overlay {
+  height: 100%;
+  width: 100%;
   position: relative;
 }
 .util-box {
@@ -62,6 +95,7 @@ export default {
   bottom: 15px;
   right: 15px;
   gap: 10px;
+  z-index: 2;
 }
 .icon {
   width: 32px;
@@ -74,7 +108,7 @@ export default {
   background: rgba(255, 255, 255, 0.9);
 }
 .icon:hover {
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.8);
 }
 .icon svg {
   color: black;

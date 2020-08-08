@@ -33,8 +33,28 @@
         <span>R</span>
       </div>
     </router-link>
-    <div class="icon">
+    <div
+      @focus="optionsModal = true"
+      @focusout="optionsModal = false"
+      tabindex="0"
+      class="icon"
+    >
       <Down size="12" />
+      <Options type="down" :show="optionsModal">
+        <div class="sub-title option-sec">Accounts</div>
+        <div class="normal-title option-sec gray-hover">
+          Add another account
+        </div>
+        <div class="normal-title option-sec gray-hover">
+          Add a free business account
+        </div>
+        <div class="sub-title option-sec">More Settings</div>
+        <div class="normal-title option-sec gray-hover">Settings</div>
+        <div class="normal-title option-sec gray-hover">
+          Tune your home feed
+        </div>
+        <div class="normal-title option-sec gray-hover">Log out</div>
+      </Options>
     </div>
   </div>
 </template>
@@ -42,6 +62,7 @@
 <script>
 import Updates from "@/components/modals/Updates.vue";
 import Inbox from "@/components/modals/Inbox.vue";
+import Options from "@/components/modals/Options.vue";
 
 import Update from "@/components/icons/Update.vue";
 import Message from "@/components/icons/Message.vue";
@@ -54,11 +75,13 @@ export default {
     Message,
     Down,
     Updates,
-    Inbox
+    Inbox,
+    Options
   },
   data() {
     return {
       updatesModal: false,
+      optionsModal: false,
       inboxModal: false
     };
   },

@@ -1,6 +1,6 @@
 <template>
   <div class="feed">
-    <stack
+    <!-- <stack
       :column-min-width="230"
       :gutter-width="16"
       :gutter-height="16"
@@ -9,17 +9,22 @@
       <stack-item v-for="(image, i) in images" :key="i">
         <Overlay :image="image" />
       </stack-item>
-    </stack>
+    </stack> -->
+    <StackGrid :columnWidth="230" :gutterX="16" :gutterY="16">
+      <div class="stack-item" v-for="(image, i) in images" :key="i">
+        <Overlay v-bind:ref="i" :angle="getAngle(i)" :image="image" />
+      </div>
+    </StackGrid>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import { Stack, StackItem } from "vue-stack-grid";
 import Overlay from "@/components/feed/Overlay.vue";
+import StackGrid from "vue-stack-grid-component";
 
 export default {
-  components: { Stack, StackItem, Overlay },
+  components: { StackGrid, Overlay },
   name: "Feed",
   props: {
     page: String
@@ -28,7 +33,8 @@ export default {
     return {
       images: [],
       pageCount: 1,
-      isLoaded: false
+      isLoaded: false,
+      columnNum: 0
     };
   },
   methods: {
@@ -46,17 +52,27 @@ export default {
         )
         .then(response => {
           // this.images = response.data.results;
-          this.isLoaded = true;
           this.images = this.images.concat(response.data.results);
+          this.isLoaded = true;
         })
         .catch(() => {
-          this.isLoaded = false;
           this.images = [];
+          this.isLoaded = false;
         });
+    },
+    getAngle(itemNum) {
+      console.log(this.$refs["0"]);
+
+      if ((itemNum % this.columnNum) + 1 > this.columnNum / 2) {
+        return "left";
+      } else {
+        return "right";
+      }
     }
   },
   created() {
     this.getImages(this.page);
+    this.columnNum = Math.floor(window.innerWidth / 230);
     // this.getImages("Aesthetic");
   },
   mounted() {

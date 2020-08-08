@@ -33,4 +33,25 @@ export default {
   /* color: #2c3e50; */
   color: black;
 }
+.gray-hover:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+.option-sec {
+  border-radius: 8px;
+  padding: 0px 8px;
+  min-height: 35px;
+  align-items: center;
+  display: flex;
+}
+
+.sub-title {
+  font-size: 12px;
+  font-weight: 400;
+  color: #111;
+}
+.normal-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #111;
+}
 </style>
