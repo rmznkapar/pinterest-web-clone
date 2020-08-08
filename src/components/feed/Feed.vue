@@ -12,7 +12,7 @@
     </stack> -->
     <StackGrid :columnWidth="230" :gutterX="16" :gutterY="16">
       <div class="stack-item" v-for="(image, i) in images" :key="i">
-        <Overlay v-bind:ref="i" :angle="getAngle(i)" :image="image" />
+        <Overlay :image="image" />
       </div>
     </StackGrid>
   </div>
@@ -59,21 +59,11 @@ export default {
           this.images = [];
           this.isLoaded = false;
         });
-    },
-    getAngle(itemNum) {
-      console.log(this.$refs["0"]);
-
-      if ((itemNum % this.columnNum) + 1 > this.columnNum / 2) {
-        return "left";
-      } else {
-        return "right";
-      }
     }
   },
   created() {
     this.getImages(this.page);
     this.columnNum = Math.floor(window.innerWidth / 230);
-    // this.getImages("Aesthetic");
   },
   mounted() {
     window.onscroll = () => {

@@ -48,6 +48,7 @@ export default {
   font-size: 12px;
   font-weight: 400;
   color: #111;
+  margin-top: 8px;
 }
 .normal-title {
   font-size: 16px;

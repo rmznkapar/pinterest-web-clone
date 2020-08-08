@@ -1,6 +1,11 @@
 <template>
   <div class="save-box">
-    <div class="select-button">
+    <div
+      @focus="saveModal = true"
+      @focusout="saveModal = false"
+      tabindex="0"
+      class="select-button"
+    >
       <span>Wallpapers</span>
       <span class="down-button">
         <svg
@@ -17,14 +22,25 @@
           ></path>
         </svg>
       </span>
+      <Save :show="saveModal" />
     </div>
     <div class="save-button"><span>Save</span></div>
   </div>
 </template>
 
 <script>
+import Save from "@/components/modals/Save.vue";
+
 export default {
-  name: "SaveBox"
+  name: "SaveBox",
+  data() {
+    return {
+      saveModal: false
+    };
+  },
+  components: {
+    Save
+  }
 };
 </script>
 
@@ -49,6 +65,7 @@ export default {
   height: 100%;
   align-items: center;
   font-size: 12px;
+  position: relative;
   flex-grow: 1;
   padding: 0px 12px;
   border-top-left-radius: 12px;

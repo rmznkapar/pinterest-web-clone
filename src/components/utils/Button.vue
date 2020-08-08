@@ -2,8 +2,8 @@
   <a class="button">
     <div
       class="button-link"
-      :style="{ backgroundColor: bgColor }"
-      :class="{ active: active }"
+      :style="{ backgroundColor: bgColor, color: color }"
+      :class="{ active: active, red: bgColor == '#e60023' }"
     >
       <div>
         <span>
@@ -19,7 +19,11 @@ export default {
   name: "Button",
   props: {
     active: Boolean,
-    bgColor: String
+    bgColor: String,
+    color: {
+      type: String,
+      default: "black"
+    }
   }
 };
 </script>
@@ -42,8 +46,11 @@ a {
 .button-link:hover {
   background: rgba(0, 0, 0, 0.06) !important;
 }
+.red:hover {
+  background: #ca102c !important;
+}
 .active {
-  color: white;
+  color: white !important;
   background: black !important;
 }
 .active:hover {

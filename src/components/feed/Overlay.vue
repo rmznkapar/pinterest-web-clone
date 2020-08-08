@@ -8,30 +8,34 @@
     <SaveBox v-show="hover" />
     <img class="img" :src="image.urls.small" :alt="image.alt_description" />
     <div v-show="hover" class="util-box">
-      <div class="icon">
-        <Share size="16" />
-      </div>
       <div
-        @focus="optionsModal = true"
-        @focusout="optionsModal = false"
+        @focus="shareboxModal = true"
+        @focusout="shareboxModal = false"
         tabindex="0"
         class="icon"
       >
+        <Share size="16" />
+        <ShareBox :show="shareboxModal" />
+      </div>
+      <div
+        @focus="modalSwitch()"
+        @focusout="modalSwitch()"
+        tabindex="0"
+        class="icon"
+        ref="optionButton"
+      >
         <Threedot size="16" />
         <Options :type="angle" :show="optionsModal">
-          <div class="sub-title option-sec">Accounts</div>
-          <div class="normal-title option-sec gray-hover">
-            Add another account
+          <div class="sub-title option-sec">
+            This Pin was inspired by your recent activity
           </div>
           <div class="normal-title option-sec gray-hover">
-            Add a free business account
+            Hide Pin
           </div>
-          <div class="sub-title option-sec">More Settings</div>
-          <div class="normal-title option-sec gray-hover">Settings</div>
           <div class="normal-title option-sec gray-hover">
-            Tune your home feed
+            Download Pin
           </div>
-          <div class="normal-title option-sec gray-hover">Log out</div>
+          <div class="normal-title option-sec gray-hover">Report Pin</div>
         </Options>
       </div>
     </div>
@@ -42,6 +46,7 @@
 <script>
 import Options from "@/components/modals/Options.vue";
 import SaveBox from "@/components/utils/SaveBox.vue";
+import ShareBox from "@/components/modals/ShareBox.vue";
 
 import Share from "@/components/icons/Share.vue";
 import Threedot from "@/components/icons/Threedot.vue";
@@ -51,19 +56,34 @@ export default {
     Share,
     Threedot,
     SaveBox,
-    Options
+    Options,
+    ShareBox
   },
   props: {
-    image: Object,
-    angle: String
+    image: Object
   },
   data() {
     return {
       hover: false,
-      optionsModal: false
+      optionsModal: false,
+      shareboxModal: false,
+      angle: ""
     };
   },
   methods: {
+    modalSwitch() {
+      this.optionsModal = !this.optionsModal;
+      if (this.optionsModal) {
+        if (
+          this.$refs.optionButton.getBoundingClientRect().x >
+          window.innerWidth / 2
+        ) {
+          this.angle = "left";
+        } else {
+          this.angle = "right";
+        }
+      }
+    },
     goPin(imageId) {
       console.log(imageId);
       if (this.$route.name === "Pin") {
@@ -95,7 +115,7 @@ export default {
   bottom: 15px;
   right: 15px;
   gap: 10px;
-  z-index: 2;
+  z-index: 1;
 }
 .icon {
   width: 32px;

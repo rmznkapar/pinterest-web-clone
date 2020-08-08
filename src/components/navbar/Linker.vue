@@ -1,10 +1,12 @@
 <template>
   <div class="linker container">
-    <div class="logo">
-      <img width="24px" height="24px" src="@/assets/logo.png" alt="" />
-    </div>
-    <router-link v-slot="{ href, navigate, isExactActive }" to="/"
-      ><Button
+    <router-link v-slot="{ href, navigate }" to="/">
+      <div :href="href" @click="navigate" class="logo">
+        <img width="24px" height="24px" src="@/assets/logo.png" alt="" />
+      </div>
+    </router-link>
+    <router-link v-slot="{ href, navigate, isExactActive }" to="/">
+      <Button
         bgColor="white"
         :active="isExactActive"
         text="Home"
@@ -46,6 +48,7 @@ export default {
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .logo:hover {
   background: rgba(0, 0, 0, 0.06) !important;

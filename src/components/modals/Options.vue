@@ -1,6 +1,6 @@
 <template>
   <transition name="slide-fade">
-    <div class="modal" :class="[type]" v-if="true">
+    <div class="modal" :class="[type]" v-if="show">
       <div class="opts">
         <slot></slot>
       </div>
@@ -39,6 +39,10 @@ export default {
   top: 80px;
   right: 10px;
 }
+.down-up {
+  top: 55px;
+  right: 0px;
+}
 .right {
   top: -50px;
   right: -210px;
@@ -51,23 +55,7 @@ export default {
   padding: 0px 8px;
   margin-bottom: 8px;
 }
-.not-text {
-  text-align: left;
-  font-size: 16px;
-  color: #111;
-  font-weight: 400;
-  flex: 1;
-  margin-left: 16px;
-}
-.not-img {
-  width: 48px;
-  height: 48px;
-  margin-right: 4px;
-  border-radius: 100%;
-}
-.not-img img {
-  border-radius: 100%;
-}
+
 .slide-fade-enter-active {
   transition: all 0.3s ease;
 }

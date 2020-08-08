@@ -5,8 +5,14 @@
         <div class="icon">
           <Pen size="20" />
         </div>
-        <div class="icon">
+        <div
+          @focus="shareboxModal = true"
+          @focusout="shareboxModal = false"
+          tabindex="0"
+          class="icon"
+        >
           <Share size="20" />
+          <ShareBox :show="shareboxModal" />
         </div>
       </div>
       <div class=" section tabs">
@@ -18,11 +24,51 @@
         </div>
       </div>
       <div class=" section filters">
-        <div class="icon">
+        <div
+          @focus="settingsModal = true"
+          @focusout="settingsModal = false"
+          tabindex="0"
+          class="icon"
+        >
           <Settings size="20" />
+          <Options type="down-up" :show="settingsModal">
+            <div class="sub-title option-sec">
+              Sort By
+            </div>
+            <div class="normal-title option-sec gray-hover">
+              A to Z
+            </div>
+            <div class="normal-title option-sec gray-hover">
+              Drag and Drop
+            </div>
+            <div class="normal-title option-sec gray-hover">
+              Last saved to
+            </div>
+            <div class="sub-title option-sec">
+              View options
+            </div>
+            <div class="normal-title option-sec gray-hover">Default</div>
+            <div class="normal-title option-sec gray-hover">Compact</div>
+          </Options>
         </div>
-        <div class="icon">
+        <div
+          @focus="addModal = true"
+          @focusout="addModal = false"
+          tabindex="0"
+          class="icon"
+        >
           <Add size="20" />
+          <Options type="down-up" :show="addModal">
+            <div class="sub-title option-sec">
+              Create
+            </div>
+            <div class="normal-title option-sec gray-hover">
+              Pin
+            </div>
+            <div class="normal-title option-sec gray-hover">
+              Board
+            </div>
+          </Options>
         </div>
       </div>
     </div>
@@ -31,6 +77,9 @@
 
 <script>
 import Button from "@/components/utils/Button.vue";
+import ShareBox from "@/components/modals/ShareBox.vue";
+import Options from "@/components/modals/Options.vue";
+
 import Pen from "@/components/icons/Pen.vue";
 import Add from "@/components/icons/Add.vue";
 import Share from "@/components/icons/Share.vue";
@@ -43,11 +92,16 @@ export default {
     Pen,
     Add,
     Share,
-    Settings
+    Settings,
+    Options,
+    ShareBox
   },
   data() {
     return {
-      switchButton: true
+      switchButton: true,
+      shareboxModal: false,
+      settingsModal: false,
+      addModal: false
     };
   },
   methods: {
@@ -94,6 +148,7 @@ export default {
   display: flex;
   border-radius: 100%;
   cursor: pointer;
+  position: relative;
 }
 .icon:hover {
   background: rgba(0, 0, 0, 0.06);
